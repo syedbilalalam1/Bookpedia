@@ -1,0 +1,63 @@
+<body>
+    <header>
+        <link rel="icon" type="image/png" href="static/favicon.png"> <!-- Adjust path if needed -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+        <div class="header-left">
+            <h1>📚 Bookpedia</h1> <!-- New title with emoji -->
+            <p>Find your next great read, anywhere, anytime! 🌍✨</p> <!-- Fun and inclusive description -->
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="search-box">
+            <h2>Find Your Book</h2>
+            <form action="/search" method="POST">
+                <input type="text" name="search_query" placeholder="Enter title, author, or keyword" required>
+                <button type="submit">Search</button>
+            </form>
+        </div>
+
+        <!-- Recommendations Section -->
+        {% if recommendations %}
+            <div class="recommendations">
+                <h3>Recommended for You</h3>
+                <ul>
+                    {% for book in recommendations %}
+                    <li>{{ book.title }} by {{ book.author }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        <div id="search-results">
+            {% if results %}
+                <h2>Search Results</h2>
+                <ul>
+                    {% for book in results %}
+                    <div class="book-result">
+                        <div class="book-cover">
+                            <img src="{{ book.cover_image_link }}" alt="Book Cover" class="book-cover-image">
+                        </div>
+                        <div class="book-info">
+                            <div class="book-title">{{ book.title }}</div>
+                            <div class="book-meta">
+                                Author: {{ book.author }}<br>
+                                Publisher: {{ book.publisher }}<br>
+                                Year: {{ book.Year }}<br>
+                                Language: {{ book.Language }}<br>
+                                Pages: {{ book.Pages }}<br>
+                                Size: {{ book.Size }} MB
+                            </div>
+                        </div>
+                        <div class="book-download">
+                            <a href="{{ book.download_link }}" target="_blank">Download</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p>No results found.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>

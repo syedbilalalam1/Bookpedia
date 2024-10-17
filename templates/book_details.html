@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ book.google_title }} - Book Details</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>{{ book.google_title }}</h1>
+        <p>by {{ book.author }}</p>
+    </header>
+
+    <div class="container">
+        <div class="book-cover">
+            <img src="{{ book.cover_image }}" alt="Book Cover">
+        </div>
+
+        <div class="book-meta">
+            <p><strong>Publisher:</strong> {{ book.publisher }}</p>
+            <p><strong>Year:</strong> {{ book.Year }}</p>
+            <p><strong>Rating:</strong> {{ book.rating }} / 5</p>
+            <p><strong>Pages:</strong> {{ book.page_count }}</p>
+        </div>
+
+        <div class="book-description">
+            <h2>Description</h2>
+            <p>{{ book.description }}</p>
+        </div>
+
+        <a href="{{ book.download_link }}" class="download-button">Download</a>
+    </div>
+</body>
+</html>
