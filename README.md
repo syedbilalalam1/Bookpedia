@@ -4,7 +4,6 @@
 A **powerful and simple book finder app** that helps you locate books from a vast collection of online sources!  
 
 ## 🌐 Live Demo  
-![Image](https://github.com/user-attachments/assets/2a3efb97-7a27-4187-8245-7262e28c783b)
 👉 [SimpleBookFinder](https://simplebookfinder.site/)  
 
 ## About SimpleBookFinder  
